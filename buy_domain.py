@@ -41,5 +41,6 @@ if __name__ == '__main__':
         schema_body = json.dumps(body_schema)
         purchase = purchase_domain(shopper_account.json().get('shopperId'),body_schema)
         print(purchase.json())
+        print(purchase.status_code)
     else:
         print('domain availability check failed')
