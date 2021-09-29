@@ -32,11 +32,7 @@ def create_subaccount(email, nameFirst, nameLast, password):
         url=req_url,
         data=body,
         headers=headers)
-    if (response.status_code != 200):
-        return {'error': response.json().code,
-                'details': response.json().message}
-    else:
-        return response.json()
+    return response
 
 # Function to get shopper details
 
@@ -47,11 +43,7 @@ def get_shopper_details(shopperId):
         url=req_url,
         headers=headers,
     )
-    if (response.status_code != 200):
-        return {'error': response.json().code,
-                'details': response.json().message}
-    else:
-        return response.json()
+    return response
 
 # Function to update the subaccount shopper details
 
@@ -71,11 +63,7 @@ def update_shopper_details(shopperId, email, externalId, marketId, nameFirst, na
         headers=headers,
         data=data
     )
-    if (response.status_code != 200):
-        return {'error': response.json().code,
-                'details': response.json().message}
-    else:
-        return response.json()
+    return response
 
 # Function to delete subaccount or shopper (works only on prod, non in sandbox !)
 
@@ -87,11 +75,7 @@ def delete_shopper(shopperId, auditClientIp):
         url=req_url,
         headers=headers
     )
-    if (response.status_code != 200):
-        return {'error': response.json().code,
-                'details': response.json().message}
-    else:
-        return response.json()
+    return response
 
 # Function to get subaccount details
 
@@ -104,11 +88,7 @@ def get_shopper_status(shopperId, auditClientIp):
         url=req_url,
         headers=headers
     )
-    if (response.status_code != 200):
-        return {'error': response.json().code,
-                'details': response.json().message}
-    else:
-        return response.json()
+    return response
 
 # Function to change password of shopper account
 
@@ -126,8 +106,4 @@ def change_subaccount_password(shopperId, password):
         data=data,
         headers=headers
     )
-    if (response.status_code != 200):
-        return {'error': response.json().code,
-                'details': response.json().message}
-    else:
-        return response.json()
+    return response

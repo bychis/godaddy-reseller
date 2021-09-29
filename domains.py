@@ -43,11 +43,7 @@ def retreive_legal_agreements(X_Market_Id,tlds,privacy,forTransfer):
         url=req_url,
         headers=headers_
     )
-    if (response.status_code != 200):
-        return {'error': response.json().code,
-                'details': response.json().message}
-    else:
-        return response.json()
+    return response
 
 # Function to check domain availibity for purchase
 def check_domain_availibity(domain):
@@ -58,7 +54,7 @@ def check_domain_availibity(domain):
     if (response.status_code != 200):
         return {'error': response.json().code,
                 'details': response.json().message}
-    return response.json()
+    return response
 
 # Function to determine whether or not the specified domains are availabe for purchase
 def check_domains_availibity(domains_array):
@@ -69,11 +65,7 @@ def check_domains_availibity(domains_array):
         data=body,
         headers=headers
     )
-    if (response.status_code != 200):
-        return {'error': response.json().code,
-                'details': response.json().message}
-    else:
-        return response.json()
+    return response
     
 # Function to purchase and register the specified domain
 def purchase_domain(shopperId,schema):
@@ -88,8 +80,7 @@ def purchase_domain(shopperId,schema):
         data=body,
         headers=headers_
     )
-    print(response.status_code)
-    return response.json()
+    return response
     
 # Function to get schema to be submitted for purchasing domain
 def get_schema_for_tld(tld):
@@ -100,11 +91,7 @@ def get_schema_for_tld(tld):
         url=req_url,
         headers=headers
     )
-    if (response.status_code != 200):
-        return {'error': response.json().code,
-                'details': response.json().message}
-    else:
-        return response.json()
+    return response.json()
 
 # Function to validate if the request body using domain purchase schema for the specified TLD
 def validate_schema(schema):
@@ -115,7 +102,7 @@ def validate_schema(schema):
         data=body,
         headers=headers
     )
-    return response.json()
+    return response
     
 # Funtion which suggest alternate domain names based on a seed domain, a set of keywords, or the shopper's purchase history
 def suggest_domains_to_shopper(shopperId,domain):
@@ -130,11 +117,7 @@ def suggest_domains_to_shopper(shopperId,domain):
         url=req_url,
         headers=headers_
     )
-    if (response.status_code != 200):
-        return {'error': response.json().code,
-                'details': response.json().message}
-    else:
-        return response.json()
+    return response
 
 # Function to retreive a list of supported TLDs
 def get_supported_tlds():
@@ -143,11 +126,7 @@ def get_supported_tlds():
         url=req_url,
         headers=headers
     )
-    if (response.status_code != 200):
-        return {'error': response.json().code,
-                'details': response.json().message}
-    else:
-        return response.json()
+    return response
     
 # Function to cancel a purchased domain
 def cancel_purchased_domain(domain):
@@ -156,11 +135,7 @@ def cancel_purchased_domain(domain):
         url=req_url,
         headers=headers
     )
-    if (response.status_code != 200):
-        return {'error': response.json().code,
-                'details': response.json().message}
-    else: 
-        return response.json()
+    return response
     
 # GET /v1/domains/{domain}
 # Function to get details of specified Domain
@@ -174,11 +149,7 @@ def get_domain_details(domain,shopperId):
         url=req_url,
         headers=headers_
     )
-    if (response.status_code != 200):
-        return {'error': '{}'.format(response.json()['code']),
-                'details': '{}'.format(response.json()['message'])}
-    else:
-        return response.json()
+    return response
 
 # Function to update details for the specified Domain
 def update_domain_details(domain,body,shopperId=None):
@@ -195,11 +166,7 @@ def update_domain_details(domain,body,shopperId=None):
         data=data,
         headers=headers_
     )
-    if (response.status_code != 200):
-        return {'error': response.json().code,
-                'details': response.json().message}
-    else:
-        return response.json()
+    return response
     
 # Function to update domain contacts
 def update_domain_contacts(domain,contacts_body,shopperId=None):
@@ -216,11 +183,7 @@ def update_domain_contacts(domain,contacts_body,shopperId=None):
         data=data,
         headers=headers_
     )
-    if (response.status_code != 200):
-        return {'error': response.json().code,
-                'details': response.json().message}
-    else:
-        return response.json()
+    return response
     
 # Function to submit privacy calcellation requets for the give domain
 def cancel_domain_privacy(domain,shopperId):
@@ -233,11 +196,7 @@ def cancel_domain_privacy(domain,shopperId):
         url=req_url,
         headers=headers_
     )
-    if (response.status_code != 200):
-        return {'error': response.json().code,
-                'details': response.json().message}
-    else:
-        return response.json()
+    return response
     
 # Function to purchase privacy for a specified domain
 def purchase_domain_privacy(domain,shopperId,purchasing_options_body):
@@ -254,11 +213,7 @@ def purchase_domain_privacy(domain,shopperId,purchasing_options_body):
         data=data,
         headers=headers_
     )
-    if (response.status_code != 200):
-        return {'error': response.json().code,
-                'details': response.json().message}
-    else:
-        return response.json()
+    return response
     
 # Function to add the specified DNS Records to the specified Domain
 def add_records(domain,shopperId,records_body):
@@ -273,11 +228,7 @@ def add_records(domain,shopperId,records_body):
         data=data,
         headers=headers_
     )
-    if (response.status_code != 200):
-        return {'error': response.json().code,
-                'details': response.json().message}
-    else:
-        return response.json()
+    return response
     
 # Function to replace all DNS Records for the specified domain
 def replace_records(domain,shopperId,records_body):
@@ -292,11 +243,7 @@ def replace_records(domain,shopperId,records_body):
         data=data,
         headers=headers_
     )
-    if (response.status_code != 200):
-        return {'error': response.json().code,
-                'details': response.json().message}
-    else:
-        return response.json()
+    return response
     
 # Function to get DNS Records for the specified domain, optionally with the specified Type and/or Name
 def get_dns_records(domain,shopperId,type=None,name=None,offset=None,limit=None):
@@ -325,11 +272,7 @@ def get_dns_records(domain,shopperId,type=None,name=None,offset=None,limit=None)
         url=req_url,
         headers=headers_
     )
-    if (response.status_code != 200):
-        return {'error': response.json().code,
-                'details': response.json().message}
-    else:
-        return response.json()
+    return response
     
 # Function to replace all DNS record for the specified Domain with the specified Type and Name
 def replace_dns_records(domain,shopperdId,type,name,records_body):
@@ -346,11 +289,7 @@ def replace_dns_records(domain,shopperdId,type,name,records_body):
         data=data,
         headers=headers_
     )
-    if (response.status_code != 200):
-        return {'error': response.json().code,
-                'details': response.json().message}
-    else:
-        return response.json()
+    return response
     
 # Function to delete all DNS Records for the specified Domain with the specified Type and Name
 def delete_dns_record(domain,shopperId,type,name):
@@ -365,11 +304,7 @@ def delete_dns_record(domain,shopperId,type,name):
         url=req_url,
         headers=headers_
     )
-    if (response.status_code != 200):
-        return {'error': '{}'.format(response.json()['code']),
-                'details': '{}'.format(response.json()['message'])}
-    else:
-        return response.json()
+    return response
     
 # Function to replace all DNS records for the specified domain with the specified Type
 def replace_dns_records(shopperId,domain,type,records_body):
@@ -386,11 +321,7 @@ def replace_dns_records(shopperId,domain,type,records_body):
         data=data,
         headers=headers_
     )
-    if (response.status_code != 200):
-        return {'error': '{}'.format(response.json()['code']),
-                'details': '{}'.format(response.json()['message'])}
-    else:
-        return response.json()
+    return response
     
 # Function to renew the specified Domain
 def renew_domain(shopperId,domain,period=1):
@@ -406,8 +337,4 @@ def renew_domain(shopperId,domain,period=1):
         data=data,
         headers=headers_
     )
-    if (response.status_code != 200):
-        return {'error': '{}'.format(response.json()['code']),
-                'details': '{}'.format(response.json()['message'])}
-    else:
-        return response.json()
+    return response
