@@ -6,11 +6,11 @@ import json
 from datetime import datetime
 if __name__ == '__main__':
     # domain name to purchase
-    domain = 'khosabrina.biz'
+    domain = 'khousabrina.biz'
     # getting the schema for tld just to  check agreements keys as i know there is two values right?
     # DNPA and DNTA ?? but it wont work unless i use DNRA instead
-    schema = get_schema_for_tld(get_tld('https://www.{}'.format(domain)))
-    print(schema)
+    # schema = get_schema_for_tld(get_tld('https://www.{}'.format(domain)))
+    # print(schema)
     # creating the shopper account to be able to make requests with shopperId in the header
     shopper_account = create_subaccount('ismael@gmail.dz','foofoo','barbar','password1234+')
     if shopper_account.status_code != 201:
@@ -38,9 +38,15 @@ if __name__ == '__main__':
     is_valid_schema = validate_schema(schema=body_schema)
     if(is_valid_schema.status_code == 200):
         print('schema is valid')
+        with open('data.json', 'w') as f:
+            json.dump(body_schema, f)
+        print('yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy')
+        print(shopper_account.json()['shopperId'])
+        print('yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy')
+
         schema_body = json.dumps(body_schema)
         purchase = purchase_domain(shopper_account.json().get('shopperId'),body_schema)
         print(purchase.json())
-        print(purchase.status_code)
+        print(purchase.headers)
     else:
         print('domain availability check failed')

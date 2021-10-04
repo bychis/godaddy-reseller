@@ -90,6 +90,7 @@ def create_schema_contact_address_mailing(address1,address2,city,country,postalC
     }
     return mailing_address
 
+
 def get_agreements_key(tld):
     keys = []
     agreement = retreive_legal_agreements('en-US','biz',True,True)
@@ -97,4 +98,3 @@ def get_agreements_key(tld):
         keys.append(i['agreementKey'])
         print(i['url'])
     return keys
-
