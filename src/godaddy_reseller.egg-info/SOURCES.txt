@@ -1,0 +1,8 @@
+LICENCE
+README.md
+pyproject.toml
+setup.py
+src/godaddy_reseller.egg-info/PKG-INFO
+src/godaddy_reseller.egg-info/SOURCES.txt
+src/godaddy_reseller.egg-info/dependency_links.txt
+src/godaddy_reseller.egg-info/top_level.txt
