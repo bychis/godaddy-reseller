@@ -1,4 +1,3 @@
-from .domains import retreive_legal_agreements
 from datetime import datetime
 
 class schema: 
@@ -89,12 +88,3 @@ class schema:
         }
         }
         return mailing_address
-
-
-    def get_agreements_key(tld):
-        keys = []
-        agreement = retreive_legal_agreements('en-US','biz',True,True)
-        for i in agreement:
-            keys.append(i['agreementKey'])
-            print(i['url'])
-        return keys
