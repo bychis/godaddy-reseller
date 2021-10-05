@@ -1,4 +1,4 @@
-from domains import retreive_legal_agreements
+from .domains import retreive_legal_agreements
 from datetime import datetime
 
 class schema: 
