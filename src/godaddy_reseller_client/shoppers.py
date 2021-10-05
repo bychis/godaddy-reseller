@@ -12,7 +12,7 @@ class shoppers:
             'Authorization': 'sso-key {}:{}'.format(key, secret)
         }
         
-    def create_subaccount(email, nameFirst, nameLast, password):
+    def create_subaccount(self, email, nameFirst, nameLast, password):
         req_url = '{}/v1/shoppers/subaccount'.format(shoppers.base_url)
         data = {
             'email': email,
@@ -30,7 +30,7 @@ class shoppers:
         return response
 
     # Function to get shopper details
-    def get_shopper_details(shopperId):
+    def get_shopper_details(self, shopperId):
         req_url = '{}/v1/shoppers/{}'.format(shoppers.base_url, shopperId)
         response = requests.get(
             url=req_url,
@@ -39,7 +39,7 @@ class shoppers:
         return response
 
     # Function to update the subaccount shopper details
-    def update_shopper_details(shopperId, email, externalId, marketId, nameFirst, nameLast):
+    def update_shopper_details(self, shopperId, email, externalId, marketId, nameFirst, nameLast):
         req_url = '{}/v1/shoppers/{}'.format(shoppers.base_url, shopperId)
         body = {
             'email': '{}'.format(email),
@@ -57,7 +57,7 @@ class shoppers:
         return response
 
     # Function to delete subaccount or shopper (works only on prod, non in sandbox !)
-    def delete_shopper(shopperId, auditClientIp):
+    def delete_shopper(self, shopperId, auditClientIp):
         req_url = '{}/v1/shoppers/{}?auditClientIp={}'.format(
             shoppers.base_url, shopperId, auditClientIp)
         response = requests.delete(
@@ -67,7 +67,7 @@ class shoppers:
         return response
 
     # Function to get subaccount details
-    def get_shopper_status(shopperId, auditClientIp):
+    def get_shopper_status(self, shopperId, auditClientIp):
         req_url = '{}/v1/shoppers/{}/status?auditClientIp={}'.format(
             shoppers.base_url, shopperId, auditClientIp
         )
@@ -78,7 +78,7 @@ class shoppers:
         return response
 
     # Function to change password of shopper account
-    def change_subaccount_password(shopperId, password):
+    def change_subaccount_password(self, shopperId, password):
         req_url = '{}/v1/shoppers/{}/factors/password'.format(
             shoppers.base_url, shopperId
         )
