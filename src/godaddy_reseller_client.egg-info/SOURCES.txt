@@ -1,0 +1,14 @@
+LICENCE
+README.md
+pyproject.toml
+setup.py
+src/godaddy_reseller_client/__init__.py
+src/godaddy_reseller_client/certificates.py
+src/godaddy_reseller_client/countries.py
+src/godaddy_reseller_client/domains.py
+src/godaddy_reseller_client/schema.py
+src/godaddy_reseller_client/shoppers.py
+src/godaddy_reseller_client.egg-info/PKG-INFO
+src/godaddy_reseller_client.egg-info/SOURCES.txt
+src/godaddy_reseller_client.egg-info/dependency_links.txt
+src/godaddy_reseller_client.egg-info/top_level.txt
