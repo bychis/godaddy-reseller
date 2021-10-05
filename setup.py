@@ -4,7 +4,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="godaddy-reseller",
+    name="godaddy_reseller",
     version="0.0.1",
     author="Bokhari Chemseddine Ismail",
     author_email="bychis6@gmail.com",
