@@ -26,7 +26,7 @@ class shoppers:
         response = requests.post(
             url=req_url,
             data=body,
-            headers=shoppers.headers)
+            headers=self.headers)
         return response
 
     # Function to get shopper details
