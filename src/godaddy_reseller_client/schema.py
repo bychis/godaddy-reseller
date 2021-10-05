@@ -1,4 +1,3 @@
-from domains import validate_schema
 from domains import retreive_legal_agreements
 from datetime import datetime
 
