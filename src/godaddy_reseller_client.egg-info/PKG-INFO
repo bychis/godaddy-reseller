@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: godaddy-reseller-client
-Version: 0.0.3
+Version: 0.0.4
 Summary: A small wrapper client of godaddy reseller api
 Home-page: https://github.com/bychis/godaddy-reseller
 Author: Bokhari Chemseddine Ismail

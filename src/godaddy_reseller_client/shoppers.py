@@ -1,6 +1,6 @@
 import json
 import requests
-from domains import *
+
 class shoppers:
     def __init__(self, base_url, key, secret):
         self.base_url = base_url
@@ -13,7 +13,7 @@ class shoppers:
         }
         
     def create_subaccount(email, nameFirst, nameLast, password):
-        req_url = '{}/v1/shoppers/subaccount'.format(domains.base_url)
+        req_url = '{}/v1/shoppers/subaccount'.format(shoppers.base_url)
         data = {
             'email': email,
             'externalId': 0,
@@ -26,21 +26,21 @@ class shoppers:
         response = requests.post(
             url=req_url,
             data=body,
-            headers=domains.headers)
+            headers=shoppers.headers)
         return response
 
     # Function to get shopper details
     def get_shopper_details(shopperId):
-        req_url = '{}/v1/shoppers/{}'.format(domains.base_url, shopperId)
+        req_url = '{}/v1/shoppers/{}'.format(shoppers.base_url, shopperId)
         response = requests.get(
             url=req_url,
-            headers=domains.headers,
+            headers=shoppers.headers,
         )
         return response
 
     # Function to update the subaccount shopper details
     def update_shopper_details(shopperId, email, externalId, marketId, nameFirst, nameLast):
-        req_url = '{}/v1/shoppers/{}'.format(domains.base_url, shopperId)
+        req_url = '{}/v1/shoppers/{}'.format(shoppers.base_url, shopperId)
         body = {
             'email': '{}'.format(email),
             'externalId': externalId,
@@ -51,7 +51,7 @@ class shoppers:
         data = json.dumps(body)
         response = requests.post(
             url=req_url,
-            headers=domains.headers,
+            headers=shoppers.headers,
             data=data
         )
         return response
@@ -59,28 +59,28 @@ class shoppers:
     # Function to delete subaccount or shopper (works only on prod, non in sandbox !)
     def delete_shopper(shopperId, auditClientIp):
         req_url = '{}/v1/shoppers/{}?auditClientIp={}'.format(
-            domains.base_url, shopperId, auditClientIp)
+            shoppers.base_url, shopperId, auditClientIp)
         response = requests.delete(
             url=req_url,
-            headers=domains.headers
+            headers=shoppers.headers
         )
         return response
 
     # Function to get subaccount details
     def get_shopper_status(shopperId, auditClientIp):
         req_url = '{}/v1/shoppers/{}/status?auditClientIp={}'.format(
-            domains.base_url, shopperId, auditClientIp
+            shoppers.base_url, shopperId, auditClientIp
         )
         response = requests.get(
             url=req_url,
-            headers=domains.headers
+            headers=shoppers.headers
         )
         return response
 
     # Function to change password of shopper account
     def change_subaccount_password(shopperId, password):
         req_url = '{}/v1/shoppers/{}/factors/password'.format(
-            domains.base_url, shopperId
+            shoppers.base_url, shopperId
         )
         body = {
             'secret': '{}'.format(password)
@@ -89,6 +89,6 @@ class shoppers:
         response = requests.put(
             url=req_url,
             data=data,
-            headers=domains.headers
+            headers=shoppers.headers
         )
         return response
