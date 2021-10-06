@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name="godaddy_reseller_client",
-    version="0.0.13",
+    version="0.0.14",
     author="Bokhari Chemseddine Ismail",
     author_email="bychis6@gmail.com",
     description="A small wrapper client of godaddy reseller api",

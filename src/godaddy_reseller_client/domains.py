@@ -12,8 +12,8 @@ class domains:
         }
     # Function to get a list of purchased domains for a shopper account (subaccount) 
     def get_shopper_domains(self, shopperId):
-        req_url = '{}/v1/domains'.format(domains.base_url)
-        headers_={**domains.headers,
+        req_url = '{}/v1/domains'.format(self.base_url)
+        headers_={**self.headers,
                 'shopperId':'{}'.format(shopperId)}
         
         response = requests.get(
@@ -25,10 +25,10 @@ class domains:
     # Function to get legal agreements
     def retreive_legal_agreements(self, X_Market_Id,tlds,privacy,forTransfer):
         req_url = '{}/v1/domains/agreements?tlds={}&privacy={}&forTransfer={}'.format(
-            domains.base_url,tlds,privacy,forTransfer
+            self.base_url,tlds,privacy,forTransfer
         )
         headers_={
-            **domains.headers,
+            **self.headers,
             'X-Market-Id': '{}'.format(X_Market_Id)
         } 
         response = requests.get(
@@ -74,7 +74,7 @@ class domains:
     # Function to get schema to be submitted for purchasing domain
     def get_schema_for_tld(self, tld):
         req_url = '{}/v1/domains/purchase/schema/{}'.format(
-            domains.base_url,tld
+            self.base_url,tld
         )
         response = requests.get(
             url=req_url,
