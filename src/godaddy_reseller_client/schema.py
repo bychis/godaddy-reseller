@@ -1,9 +1,7 @@
-from datetime import datetime
-
 class schema: 
     def __init__(self) -> None:
         pass
-    def create_schema_body(consent,domain,contactRegistrant,contactAdmin=None,contactBilling=None,
+    def create_schema_body(self,consent,domain,contactRegistrant,contactAdmin=None,contactBilling=None,
                         contactTech=None,nameServers=None,period=None,privacy=False,renewAuto=True):
         schema = {
             "consent": {
@@ -53,7 +51,7 @@ class schema:
             }
         return schema
         
-    def create_schema_consent_body(agreedAt,agreedBy,agreementKeys):
+    def create_schema_consent_body(self,agreedAt,agreedBy,agreementKeys):
         consent = {
             "agreedAt": "{}".format(agreedAt),
             "agreedBy": "{}".format(agreedBy),
@@ -62,7 +60,7 @@ class schema:
         }
         return consent
         
-    def create_schema_contact_body(addressMailing,email,fax,jobTitle,nameFirst,
+    def create_schema_contact_body(self,addressMailing,email,fax,jobTitle,nameFirst,
                                 nameLast,nameMiddle,organization,phone):
         contact = {
             **addressMailing,
@@ -77,7 +75,7 @@ class schema:
         }
         return contact
 
-    def create_schema_contact_address_mailing(address1,address2,city,country,postalCode,state):
+    def create_schema_contact_address_mailing(self,address1,address2,city,country,postalCode,state):
         mailing_address = {"addressMailing": {
             "address1": "{}".format(address1),
             "address2": "{}".format(address2),
