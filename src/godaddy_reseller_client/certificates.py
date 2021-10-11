@@ -71,3 +71,9 @@ class certificate:
 
     def post_validate_certificate(self):
         pass
+
+    def delete_certificate_callback(self):
+        pass
+
+    def put_certificate_callback(self):
+        pass
