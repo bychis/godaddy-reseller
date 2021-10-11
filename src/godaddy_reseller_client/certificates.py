@@ -41,3 +41,33 @@ class certificate:
 
     def get_site_seal(self):
         pass
+
+    def post_certificate(self):
+        pass
+
+    def post_alternate_email(self):
+        pass
+
+    def post_cancel(self):
+        pass
+
+    def post_check_domain_control(self):
+        pass
+
+    def post_reissue(self):
+        pass
+
+    def post_renew(self):
+        pass
+
+    def post_resend_email(self):
+        pass
+
+    def post_resend_email_to_email(self):
+        pass
+
+    def post_revoke(self):
+        pass
+
+    def post_validate_certificate(self):
+        pass
