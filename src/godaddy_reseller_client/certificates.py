@@ -110,35 +110,100 @@ class certificate:
         )
         return response.json()
 
-    def post_certificate(self):
-        pass
+    def post_certificate(self, certificate_create, x_market_id):
+        req_url = '{}/v1/certificates'.format(self.base_url)
+        response = requests.post(
+            url=req_url,
+            headers=self.headers,
+            json=certificate_create,
+            params={'x-market-id': x_market_id}
+        )
+        return response.json()
 
-    def post_alternate_email(self):
-        pass
+    def post_alternate_email(self, certificate_id, email_id, email_address):
+        req_url = '{}/v1/certificates/{}/email/{}/resend/{}'.format(
+            self.base_url, certificate_id, email_id, email_address)
+        response = requests.post(
+            url=req_url,
+            headers=self.headers
+        )
+        return response.json()
 
-    def post_cancel(self):
-        pass
+    def post_cancel(self, certificate_id):
+        req_url = '{}/v1/certificates/{}/cancel'.format(
+            self.base_url, certificate_id)
+        response = requests.post(
+            url=req_url,
+            headers=self.headers
+        )
+        return response.json()
 
-    def post_check_domain_control(self):
-        pass
+    def post_check_domain_control(self, certificate_id):
+        req_url = '{}/v1/certificates/{}/verifyDomainControl'.format(
+            self.base_url, certificate_id)
+        response = requests.post(
+            url=req_url,
+            headers=self.headers
+        )
+        return response.json()
 
-    def post_reissue(self):
-        pass
+    def post_reissue(self, certificate_id, reissue_create):
+        req_url = '{}/v1/certificates/{}/reissue'.format(
+            self.base_url, certificate_id)
+        response = requests.post(
+            url=req_url,
+            headers=self.headers,
+            json=reissue_create
+        )
+        return response.json()
 
-    def post_renew(self):
-        pass
+    def post_renew(self, certificate_id, renew_create):
+        req_url = '{}/v1/certificates/{}/renew'.format(
+            self.base_url, certificate_id)
+        response = requests.post(
+            url=req_url,
+            headers=self.headers,
+            json=renew_create
+        )
+        return response.json()
 
-    def post_resend_email(self):
-        pass
+    def post_resend_email(self, certificate_id, email_id):
+        req_url = '{}/v1/certificates/{}/email/{}/resend'.format(
+            self.base_url, certificate_id, email_id)
+        response = requests.post(
+            url=req_url,
+            headers=self.headers
+        )
+        return response.json()
 
-    def post_resend_email_to_email(self):
-        pass
+    def post_resend_email_to_email(self, certificate_id, email_id, email_address):
+        req_url = '{}/v1/certificates/{}/email/{}/resend/{}'.format(
+            self.base_url, certificate_id, email_id, email_address)
+        response = requests.post(
+            url=req_url,
+            headers=self.headers
+        )
+        return response.json()
 
-    def post_revoke(self):
-        pass
+    def post_revoke(self, certificate_id, revoke_create):
+        req_url = '{}/v1/certificates/{}/revoke'.format(
+            self.base_url, certificate_id)
+        response = requests.post(
+            url=req_url,
+            headers=self.headers,
+            json=revoke_create
+        )
+        return response.json()
 
-    def post_validate_certificate(self):
-        pass
+    def post_validate_certificate(self, certificate_create, x_market_id):
+        req_url = '{}/v1/certificates/validate'.format(self.base_url)
+        response = requests.post(
+            url=req_url,
+            headers=self.headers,
+            json=certificate_create,
+            params={'x-market-id': x_market_id}
+        )
+        return response.json()
 
     def delete_certificate_callback(self):
         pass
