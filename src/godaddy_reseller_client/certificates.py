@@ -205,8 +205,20 @@ class certificate:
         )
         return response.json()
 
-    def delete_certificate_callback(self):
-        pass
+    def delete_certificate_callback(self, certificate_id):
+        req_url = '{}/v1/certificates/{}/callback'.format(
+            self.base_url, certificate_id)
+        response = requests.delete(
+            url=req_url,
+            headers=self.headers
+        )
+        return response.json()
 
-    def put_certificate_callback(self):
-        pass
+    def put_certificate_callback(self, certificate_id, callback_url):
+        req_url = '{}/v1/certificates/{}/callback?callbackUrl={}'.format(
+            self.base_url, certificate_id, callback_url)
+        response = requests.put(
+            url=req_url,
+            headers=self.headers
+        )
+        return response.json()
