@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name="godaddy_reseller_client",
-    version="0.0.5",
+    version="0.9.0",
     author="Bokhari Chemseddine Ismail",
     author_email="bychis6@gmail.com",
     description="A small wrapper client of godaddy reseller api",
@@ -21,6 +21,6 @@ setuptools.setup(
         "Operating System :: OS Independent",
     ],
     package_dir={"": "src"},
-    packages=['tld','requests'],
+    packages=setuptools.find_packages(where="src"),
     python_requires=">=3.6",
 )

@@ -1,5 +1,7 @@
 import requests
 import json
+
+from requests.models import Response
 class domains:
     def __init__(self, base_url, key, secret):
         self.key = key
@@ -273,7 +275,7 @@ class domains:
             **self.headers,
             'X-Shopper-Id': '{}'.format(shopperdId)
         }
-        response = requests.put(
+        response = requests.patch(
             url=req_url,
             data=data,
             headers=headers_
@@ -324,6 +326,231 @@ class domains:
         response = requests.post(
             url=req_url,
             data=data,
+            headers=headers_
+        )
+        return response
+    
+    # Function to get the specified Domain's Privacy
+    def get_domain_privacy(self,shopperId,domain):
+        req_url = '{}/v1/domains/{}/privacy'.format(self.base_url,domain)
+        headers_ = {
+            **self.headers,
+            'X-Shopper-Id': '{}'.format(shopperId)
+        }
+        response = requests.get(
+            url=req_url,
+            headers=headers_
+        )
+        return response
+    
+    # Function to replace the specified Domain's Privacy
+    def replace_domain_privacy(self,shopperId,domain,privacy_body):
+        req_url = '{}/v1/domains/{}/privacy'.format(self.base_url,domain)
+        headers_ = {
+            **self.headers,
+            'X-Shopper-Id': '{}'.format(shopperId)
+        }
+        data = json.dumps(privacy_body)
+        response = requests.put(
+            url=req_url,
+            data=data,
+            headers=headers_
+        )
+        return response
+    
+    # Function to get the specified Domain's Privacy
+    def get_domain_privacy(self,shopperId,domain):
+        req_url = '{}/v1/domains/{}/privacy'.format(self.base_url,domain)
+        headers_ = {
+            **self.headers,
+            'X-Shopper-Id': '{}'.format(shopperId)
+        }
+        response = requests.get(
+            url=req_url,
+            headers=headers_
+        )
+        return response
+    
+    def add_dns_A_record(self,shopperId,domain,name,value,ttl=300):
+        req_url = '{}/v1/domains/{}/records/A/{}'.format(self.base_url,domain,name)
+        headers_ = {
+            **self.headers,
+            'X-Shopper-Id': '{}'.format(shopperId)
+        }
+        body = {
+            "name": name,
+            "value": value,
+            "ttl": ttl
+        }
+        data = json.dumps(body)
+        response = requests.post(
+            url=req_url,
+            data=data,
+            headers=headers_
+        )
+        return response
+    
+    def add_dns_CNAME_record(self,shopperId,domain,name,value,ttl=300):
+        req_url = '{}/v1/domains/{}/records/CNAME/{}'.format(self.base_url,domain,name)
+        headers_ = {
+            **self.headers,
+            'X-Shopper-Id': '{}'.format(shopperId)
+        }
+        body = {
+            "name": name,
+            "value": value,
+            "ttl": ttl
+        }
+        data = json.dumps(body)
+        response = requests.post(
+            url=req_url,
+            data=data,
+            headers=headers_
+        )
+        return response
+    
+    def add_dns_MX_record(self,shopperId,domain,name,value,priority,ttl):
+        req_url = '{}/v1/domains/{}/records/MX/{}'.format(self.base_url,domain,name)
+        headers_ = {
+            **self.headers,
+            'X-Shopper-Id': '{}'.format(shopperId)
+        }
+        body = {
+            "name": name,
+            "value": value,
+            "priority": priority,
+            "ttl": ttl,
+        }
+        data = json.dumps(body)
+        response = requests.post(
+            url=req_url,
+            data=data,
+            headers=headers_
+        )
+        return response
+
+    def add_dns_SRV_record(self,shopperId,domain,name,value,service,priority,weight,port,ttl):
+        req_url = '{}/v1/domains/{}/records/SRV/{}'.format(self.base_url,domain,name)
+        headers_ = {
+            **self.headers,
+            'X-Shopper-Id': '{}'.format(shopperId)
+        }
+        body = {
+            "name": name,
+            "value": value,
+            "service": service,
+            "priority": priority,
+            "weight": weight,
+            "port": port,
+            "ttl": ttl,
+        }
+        data = json.dumps(body)
+        response = requests.post(
+            url=req_url,
+            data=data,
+            headers=headers_
+        )
+        return response
+    
+    def add_dns_SOA_record(self,shoppperId,domain,name,value,ttl):
+        req_url = '{}/v1/domains/{}/records/SOA/{}'.format(self.base_url,domain,name)
+        headers_ = {
+            **self.headers,
+            'X-Shopper-Id': '{}'.format(shoppperId)
+        }
+        body = {
+            "name": name,
+            "value": value,
+            "ttl": ttl,
+        }
+        data = json.dumps(body)
+        response = requests.post(
+            url=req_url,
+            data=data,
+            headers=headers_
+        )
+        return response
+    
+    def add_dns_TXT_record(self,shopperId,domain,name,value,ttl):
+        req_url = '{}/v1/domains/{}/records/TXT/{}'.format(self.base_url,domain,name)
+        headers_ = {
+            **self.headers,
+            'X-Shopper-Id': '{}'.format(shopperId)
+        }
+        body = {
+            "name": name,
+            "value": value,
+            "ttl": ttl,
+        }
+        data = json.dumps(body)
+        response = requests.post(
+            url=req_url,
+            data=data,
+            headers=headers_
+        )
+        return response
+    
+    def get_dns_records(self,shopperId,domain):
+        req_url = '{}/v1/domains/{}/records'.format(self.base_url,domain)
+        headers_ = {
+            **self.headers,
+            'X-Shopper-Id': '{}'.format(shopperId)
+        }
+        response = requests.get(
+            url=req_url,
+            headers=headers_
+        )
+        return response
+    
+    def get_dns_record(self,shopperId,domain,record_type,record_name):
+        req_url = '{}/v1/domains/{}/records/{}/{}'.format(self.base_url,domain,record_type,record_name)
+        headers_ = {
+            **self.headers,
+            'X-Shopper-Id': '{}'.format(shopperId)
+        }
+        response = requests.get(
+            url=req_url,
+            headers=headers_
+        )
+        return response
+    
+    def renew_domain(self,shopperId,domain,period):
+        req_url = '{}/v1/domains/{}/renew'.format(self.base_url,domain)
+        headers_ = {
+            **self.headers,
+            'X-Shopper-Id': '{}'.format(shopperId)
+        }
+        body = {
+            'period': '{}'.format(period)
+        }
+        response = requests.post(
+            url=req_url,
+            headers=headers_,
+            body=body
+        )
+        return response
+    
+    def transfer_domain(self,shopperId,domain,body):
+        req_url = '{}/v1/domains/{}'.format(self.base_url,domain)
+        headers_ = {
+            **self.headers,
+            'X-Shopper-Id': '{}'.format(shopperId)
+        }
+        response = requests.post(
+            url = req_url,
+            headers = headers_,
+            body=body
+        )
+        return response
+    
+    def verify_registrant_email(self,shopperId,domain):
+        req_url = '{}/v1/domains/{}/verifyRegistrantEmail'.format(self.base_url,domain)
+        headers_ = {
+            **self.headers,
+            'X-Shopper-Id': '{}'.format(shopperId)
+        }
+        response = requests.post(
+            url=req_url,
             headers=headers_
         )
         return response
