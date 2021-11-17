@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: godaddy-reseller-client
-Version: 0.9.0
+Version: 0.9.1
 Summary: A small wrapper client of godaddy reseller api
 Home-page: https://github.com/bychis/godaddy-reseller
 Author: Bokhari Chemseddine Ismail
@@ -17,5 +17,5 @@ License-File: LICENCE
 
 # Godaddy reseller API client implementation
 ## How to install godaddy_reseller package?
-- creating virtual env: ```pip3 install godaddy_reseller```
+- ```pip install godaddy-reseller-client```
 

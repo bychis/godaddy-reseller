@@ -97,7 +97,7 @@ class domains:
         
     # Funtion which suggest alternate domain names based on a seed domain, a set of keywords, or the shopper's purchase history
     def suggest_domains_to_shopper(self, shopperId,domain):
-        req_url = '{}/v1/domains/suggest?querry={}'.format(
+        req_url = '{}/v1/domains/suggest?query={}'.format(
             self.base_url,domain
         )
         headers_ = {
